@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import User from "./components/User";
 
 const App = () => {
   const [users, setUsers] = useState([
@@ -56,8 +57,7 @@ const App = () => {
         onChange = {ageChangeHandler}/>
         {age}
         <br />
-      <button onClick={clickAddButtonHandler}>추가</button>  
-        
+        <Button clickAddButtonHandler={clickAddButtonHandler}>추가</Button>
       </div>
       
       <div className="app-style">
@@ -75,12 +75,9 @@ const App = () => {
   );
 };
 
-const User = ({item, clickDelButtonHandler}) => {
-  return (
-    <div key={item.id} className="box-style">
-              {item.age} - {item.name}
-              <button onClick={() => clickDelButtonHandler(item.id)}>x</button>
-            </div>
-  )
-}
+const Button = ({clickAddButtonHandler, children}) => {
+  return <button onClick={clickAddButtonHandler}>{children}</button>  
+};
+
+
 export default App;
