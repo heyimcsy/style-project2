@@ -31,6 +31,11 @@ const App = () => {
 
     setUsers([...users, newUser])
   };
+  const clickDelButtonHandler = (id) => {
+    alert(id);
+    const newUsers = users.filter(user => user.id !== id)
+    setUsers(newUsers)
+  };
 
   return (
     <div>
@@ -47,7 +52,9 @@ const App = () => {
         value = {age}
         onChange = {ageChangeHandler}/>
         {age}
+        <br />
       <button onClick={clickAddButtonHandler}>추가</button>  
+        
       </div>
       
       <div className="app-style">
@@ -55,6 +62,7 @@ const App = () => {
           return (
             <div key={item.id} className="box-style">
               {item.age} - {item.name}
+              <button onClick={()=>clickDelButtonHandler(item.id)}>x</button>
             </div>
           );
         })}
