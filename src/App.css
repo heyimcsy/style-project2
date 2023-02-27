@@ -7,7 +7,7 @@
 .box-style {
   width: 100px;
   height: 100px;
-  border: 3px solid rgb(100, 83, 125);
+  border: 3px solid rgb(255, 242, 93);
   border-radius: 10px;
   display: flex;
   align-items: center;
