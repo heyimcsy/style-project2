@@ -33,10 +33,10 @@ const App = () => {
   };
   const clickDelButtonHandler = (id) => {
     // alert(id);
-    // const newUsers = users.filter(user => user.id !== id);
-    const newUsers = users.filter(function(user){
-      return user.id !== id;
-    });
+    const newUsers = users.filter(user => user.id !== id);
+    // const newUsers = users.filter(function(user){
+    //   return user.id !== id;
+    // });
     setUsers(newUsers)
   };
 
@@ -63,10 +63,11 @@ const App = () => {
       <div className="app-style">
         {users.map((item) => {
           return (
-            <div key={item.id} className="box-style">
-              {item.age} - {item.name}
-              <button onClick={()=>clickDelButtonHandler(item.id)}>x</button>
-            </div>
+            <User 
+              key={item.id}
+              item={item} 
+              clickDelButtonHandler={clickDelButtonHandler}
+            />
           );
         })}
       </div>
@@ -74,4 +75,12 @@ const App = () => {
   );
 };
 
+const User = ({item, clickDelButtonHandler}) => {
+  return (
+    <div key={item.id} className="box-style">
+              {item.age} - {item.name}
+              <button onClick={() => clickDelButtonHandler(item.id)}>x</button>
+            </div>
+  )
+}
 export default App;
