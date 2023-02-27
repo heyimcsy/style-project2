@@ -13,10 +13,24 @@ const App = () => {
 
   const nameChangeHandler = (event) => {
     setName(event.target.value);
-  }
+  };
   const ageChangeHandler = (event) => {
-    setName(event.target.value);
-  }
+    setAge(event.target.value);
+  };
+
+  const clickAddButtonHandler = () => {
+    //1. 새로운 형태의 이놈을 만든다/
+    //2. 이놈{ id: 1, age: 30, name: "송중기" }
+    //3. 이놈을 배열에 더한다
+
+    const newUser = {
+      id: users.length + 1,
+      age,
+      name: name,
+    };
+
+    setUsers([...users, newUser])
+  };
 
   return (
     <div>
@@ -25,12 +39,17 @@ const App = () => {
       <input 
         value = {name}
         onChange = {nameChangeHandler}
-        /> <br />
+        />
+        {name} 
+        <br />
       나이 : &nbsp; 
       <input 
         value = {age}
         onChange = {ageChangeHandler}/>
+        {age}
+      <button onClick={clickAddButtonHandler}>추가</button>  
       </div>
+      
       <div className="app-style">
         {users.map((item) => {
           return (
