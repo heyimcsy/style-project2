@@ -32,8 +32,11 @@ const App = () => {
     setUsers([...users, newUser])
   };
   const clickDelButtonHandler = (id) => {
-    alert(id);
-    const newUsers = users.filter(user => user.id !== id)
+    // alert(id);
+    // const newUsers = users.filter(user => user.id !== id);
+    const newUsers = users.filter(function(user){
+      return user.id !== id;
+    });
     setUsers(newUsers)
   };
 
