@@ -11,22 +11,25 @@ const App = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
 
+  const nameChangeHandler = (event) => {
+    setName(event.target.value);
+  }
+  const ageChangeHandler = (event) => {
+    setName(event.target.value);
+  }
+
   return (
     <div>
       <div>
       이름 : &nbsp;
       <input 
         value = {name}
-        onChange = {(event)=>{
-          setName(event.target.value);
-        }}
+        onChange = {nameChangeHandler}
         /> <br />
       나이 : &nbsp; 
       <input 
         value = {age}
-        onChange = {(event)=>{
-          setAge(event.target.value);
-        }}/>
+        onChange = {ageChangeHandler}/>
       </div>
       <div className="app-style">
         {users.map((item) => {
